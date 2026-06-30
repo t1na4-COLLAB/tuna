@@ -1,112 +1,91 @@
-```html
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Restaurant Tycoon</title>
+<meta charset="UTF-8">
+<title>butonu tıkla la</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #1e1e1e;
-      color: white;
-      text-align: center;
-      margin-top: 30px;
-    }
+<style>
+body{
+margin:0;
+height:100vh;
+background:rgb(84, 82, 82);
+overflow:hidden;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:flex-start;
+}
 
-    button {
-      background: white;
-      border: none;
-      padding: 12px 18px;
-      margin: 6px;
-      cursor: pointer;
-      border-radius: 50px;
-      font-weight: bold;
-      color: black;
-      transition: 0.25s;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-    }
+#txt{
+color:white;
+margin-top:20px;
+font-size:20px;
+}
 
-    button:hover {
-      transform: scale(1.05);
-    }
+#img{
+width:150px;
+margin-top:20px;
+border-radius:10px;
+}
 
-    .menu {
-      margin-top: 20px;
-      padding: 15px;
-      background: black;
-      border-radius: 12px;
-      width: 260px;
-      margin-left: auto;
-      margin-right: auto;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
-    }
-
-    .kucuk {
-      width: 200px;
-      border-radius: 10px;
-      margin-top: 10px;
-    }
-  </style>
+#btn{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+padding:15px 25px;
+background:white;
+border:none;
+cursor:pointer;
+border-radius:10px;
+}
+</style>
 </head>
 
 <body>
 
-<h1>MENU</h1>
+<img id="img" src="https://i.pinimg.com/736x/26/c4/c1/26c4c189f8662ce06481863f853fe4e2.jpg">
 
-<button onclick="toggle('soup')">Çorbalar</button>
-<button onclick="toggle('salad')">Salatalar</button>
-<button onclick="toggle('food')">Et Yemekleri</button>
+<div id="txt">butona bas pls</div>
 
-<div id="soup" class="menu" style="display:none;">
-  <h2>Mercimek Çorbası</h2>
-  <img src="https://www.trakyagezi.com/wp-content/uploads/2016/05/MercimekÇorbası.jpg"
-    class="kucuk"
-  <p>105 TL</p>
-
-  <h2>Ezogelin</h2>
-  <img src="https://www.nizampide.com/wp-content/uploads/2018/07/ezogelin-çorbası-nizam-pide-sütlaç-istanbul-beyoğlu-istiklal-caddesi-600x600.jpg"
-    class="kucuk"
-  <p>120 TL</p>
-</div>
-
-<div id="salad" class="menu" style="display:none;">
-  <h2>Çoban Salata</h2>
-  <img src="https://www.kevserinmutfagi.com/wp-content/uploads/2012/10/coban_salata1-600x450.jpg"
-    class="kucuk"
-  <p>80 TL</p>
-
-  <h2>Mevsim Salata</h2>
-  <img src="https://korgan.com.tr/wp-content/uploads/2024/07/19-Mevsim-Salata.jpg"
-    class="kucuk"
-  <p>90 TL</p>
-</div>
-
-<div id="food" class="menu" style="display:none;">
-  <h2>Adana Kebap</h2>
-  <img src="https://media-cdn.tripadvisor.com/media/photo-m/1280/31/6a/d9/9d/caption.jpg"
-       class="kucuk">
-  <p>458 TL</p>
-
-  <h2>kebap</h2>
-  <img src="https://www.kulturportali.gov.tr/repoKulturPortali/large/SehirRehberi//TurkMutfagi/20201017083536688_adana%20kebabi.jpeg?format=jpg&quality=50"
-       class="kucuk"
-  <p>120 TL</p>
-</div>
+<button id="btn">TIKLA</button>
 
 <script>
-function toggle(id) {
-  const el = document.getElementById(id);
 
-  if (el.style.display === "none") {
-    el.style.display = "block";
-  } else {
-    el.style.display = "none";
-  }
+let sayac = 0;
+
+const btn = document.getElementById("btn");
+const txt = document.getElementById("txt");
+const img = document.getElementById("img");
+
+btn.onclick = function () {
+
+sayac++;
+
+if (sayac >= 10) {
+
+btn.style.left = "50%";
+btn.style.top = "50%";
+btn.style.transform = "translate(-50%,-50%)";
+
+btn.onclick = function () {
+txt.innerHTML = "sen malsın abi";
+img.src = "https://foto.sondakika.com/haber/2023/08/31/findik-toplamaya-gittigi-bahcede-hayatini-kay-16281976_amp.jpg";
+btn.style.display = "none";
+};
+
+return;
 }
+
+let x = Math.random() * (window.innerWidth - 100);
+let y = Math.random() * (window.innerHeight - 50);
+
+btn.style.left = x + "px";
+btn.style.top = y + "px";
+
+};
+
 </script>
 
 </body>
 </html>
-``
